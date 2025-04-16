@@ -350,7 +350,7 @@ export default function Home() {
                   <div className="flex space-x-4">
                     <Button asChild variant="outline" size="icon">
                       <a
-                        href="https://www.linkedin.com/in/shuaib-karim-551841232/"
+                        href="https://www.linkedin.com/in/"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="LinkedIn Profile"
@@ -483,7 +483,7 @@ export default function Home() {
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a
-                href="https://www.linkedin.com/in/shuaib-karim-551841232/"
+                href="https://www.linkedin.com/in/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary"
