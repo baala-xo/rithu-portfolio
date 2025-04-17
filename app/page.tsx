@@ -41,33 +41,52 @@ export default function Home() {
   }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    try {
-      // In a real implementation, you would send this data to your backend
-      // For now, we'll simulate a successful submission
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+  try {
+    const response = await fetch("https://formspree.io/f/mwpldeyl", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+      }),
+    });
 
+    const data = await response.json();
+
+    if (response.ok) {
       toast({
         title: "Message sent!",
         description: "Thank you for reaching out. I'll get back to you soon.",
-      })
+      });
 
-      // Reset form
-      setName("")
-      setEmail("")
-      setMessage("")
-    } catch (error) {
+      // Reset form fields
+      setName("");
+      setEmail("");
+      setMessage("");
+    } else {
       toast({
         title: "Something went wrong",
-        description: "Your message couldn't be sent. Please try again.",
+        description: data.error || "Your message couldn't be sent. Please try again.",
         variant: "destructive",
-      })
-    } finally {
-      setIsSubmitting(false)
+      });
     }
+  } catch (error) {
+    toast({
+      title: "Something went wrong",
+      description: "Network error. Please check your connection and try again.",
+      variant: "destructive",
+    });
+  } finally {
+    setIsSubmitting(false);
   }
+};
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -283,7 +302,7 @@ export default function Home() {
                 </p>
                 <Button asChild size="lg">
                   <a
-                    href="https://www.behance.net/bala26"
+                    href="https://www.behance.net/mahalakshmi47"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center"
@@ -350,7 +369,7 @@ export default function Home() {
                   <div className="flex space-x-4">
                     <Button asChild variant="outline" size="icon">
                       <a
-                        href="https://www.linkedin.com/in/"
+                        href="https://www.behance.net/mahalakshmi47"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="LinkedIn Profile"
@@ -360,7 +379,7 @@ export default function Home() {
                     </Button>
                     <Button asChild variant="outline" size="icon">
                       <a
-                        href="https://www.behance.net/bala26"
+                        href="https://www.linkedin.com/in/mahalakshmi31"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Behance Profile"
@@ -483,7 +502,7 @@ export default function Home() {
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a
-                href="https://www.linkedin.com/in/"
+                href="https://www.linkedin.com/in/mahalakshmi31"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary"
@@ -491,7 +510,7 @@ export default function Home() {
                 LinkedIn
               </a>
               <a
-                href="https://www.behance.net/bala26"
+                href="https://www.behance.net/mahalakshmi47"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary"
