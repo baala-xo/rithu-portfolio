@@ -369,7 +369,7 @@ export default function Home() {
                   <div className="flex space-x-4">
                     <Button asChild variant="outline" size="icon">
                       <a
-                        href="https://www.behance.net/mahalakshmi47"
+                        href="https://www.linkedin.com/in/mahalakshmi31"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="LinkedIn Profile"
@@ -379,7 +379,7 @@ export default function Home() {
                     </Button>
                     <Button asChild variant="outline" size="icon">
                       <a
-                        href="https://www.linkedin.com/in/mahalakshmi31"
+                        href="https://www.behance.net/mahalakshmi47"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Behance Profile"
